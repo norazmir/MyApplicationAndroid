@@ -54,6 +54,9 @@ public class Main2Activity extends AppCompatActivity {
 //                    Toast.makeText(getApplicationContext(), "Successfully Login. Good Job ! ", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(getApplicationContext(), WelcomeActivity.class);
                     intent.putExtra("Value", password);
+                    Bundle bundle = new Bundle();
+                    bundle.putString("keyValue", email);
+                    intent.putExtras(bundle);
                     startActivity(intent);
                 }
                 else
