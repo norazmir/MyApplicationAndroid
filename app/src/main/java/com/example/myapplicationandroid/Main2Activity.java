@@ -17,54 +17,53 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 public class Main2Activity extends AppCompatActivity {
 
     public String TAG = "Main2Activity";
 
-    private TextView txtRegister;
-    private Button btnLogin;
-     EditText edtEmail;
-     EditText edtPassword;
+    @BindView(R.id.textRegister)
+    TextView txtRegister;
+    @BindView(R.id.editEmail)
+    EditText edtEmail;
+    @BindView(R.id.editPassword)
+    EditText edtPassword;
+
     DatabaseHelper db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+        ButterKnife.bind(this);
 
         db = new DatabaseHelper(this);
+    }
 
-        txtRegister = (TextView) findViewById(R.id.textRegister);
-        btnLogin = (Button) findViewById(R.id.buttonLogin);
-        edtEmail = (EditText) findViewById(R.id.editEmail);
-        edtPassword = (EditText) findViewById(R.id.editPassword);
-
-        txtRegister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+    @OnClick({R.id.buttonLogin, R.id.textRegister})
+    public void onViewClicked(View view){
+        switch (view.getId()){
+            case R.id.buttonLogin:
                 String email = edtEmail.getText().toString();
                 String password = edtPassword.getText().toString();
-                Log.d(TAG,"email " + email);
-                Log.d(TAG,"password " + password);
                 Boolean checkEmailPass = db.emailPassword(email, password);
                 if (checkEmailPass == true){
-                    Toast.makeText(getApplicationContext(), "Successfully Login. Good Job ! ", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getApplicationContext(), "Successfully Login. Good Job ! ", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(getApplicationContext(), WelcomeActivity.class);
+                    intent.putExtra("Value", password);
                     startActivity(intent);
                 }
                 else
                     Toast.makeText(getApplicationContext(), "Wrong email or password", Toast.LENGTH_SHORT).show();
-            }
-        });
-
+                break;
+            case R.id.textRegister:
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+                break;
+        }
 
 
     }
