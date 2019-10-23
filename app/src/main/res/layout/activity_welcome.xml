@@ -13,12 +13,22 @@
         android:layout_marginTop="50dp"
         android:layout_centerHorizontal="true"/>
 
+    <Button
+        android:id="@+id/buttonList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Show List"
+        android:layout_below="@+id/textData"
+        android:layout_centerHorizontal="true"/>
+
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/animation_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:lottie_fileName="thumbup.json"
+        app:lottie_fileName="love.json"
         app:lottie_loop="true"
         app:lottie_autoPlay="true" />
+
+
 
 </RelativeLayout>

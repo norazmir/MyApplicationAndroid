@@ -8,34 +8,54 @@
     tools:context=".Main2Activity"
     tools:showIn="@layout/activity_main2">
 
-    <EditText
-        android:id="@+id/editEmail"
-        android:layout_centerHorizontal="true"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/emailLayout"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:layout_marginTop="100dp"
-        android:inputType="textEmailAddress"
-        android:hint="Email" />
+        android:layout_height="100dp"
+        android:layout_marginTop="0dp"
+        >
+        <EditText
+            android:id="@+id/editEmail"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:inputType="textEmailAddress"
+            android:hint="Email" />
 
-    <EditText
-        android:id="@+id/editPassword"
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/passwordLayout"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:layout_below="@id/editEmail"
-        android:layout_marginTop="80dp"
-        android:layout_centerHorizontal="true"
-        android:inputType="textPassword"
-        android:hint="Password"/>
+        android:layout_height="100dp"
+        android:layout_below="@id/emailLayout"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp">
+        <EditText
+            android:id="@+id/editPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:layout_centerHorizontal="true"
+            android:inputType="textWebPassword"
+            android:hint="Password"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
 
     <Button
         android:id="@+id/buttonLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editPassword"
+        android:layout_below="@id/passwordLayout"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="5dp"
         android:text="Login" />
 
     <TextView

@@ -11,17 +11,24 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".WelcomeActivity"></activity>
-        <activity android:name=".Main2Activity">
+        <activity android:name=".ViewDataActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".WelcomeActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" >
+        </activity>
+        <activity android:name=".Main2Activity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" >
+        </activity>
         <activity
             android:name=".MainActivity"
-            android:label="@string/title_activity_main"></activity>
+            android:label="@string/title_activity_main" />
+        <activity android:name=".ProgressBarActivity">
+
+        </activity>
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />
